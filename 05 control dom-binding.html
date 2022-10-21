@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>control dom</title>
+</head>
+<body>
+    <!-- cdn 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+
+    <h2>03 vue2 control dom - data binding</h2>
+
+    <div id="app">
+        <p>{{nombre}}</p>
+        <p v-text="nombre"></p> <!-- uso directiva v-text -->
+        <input type="text" v-model="nombre">
+        <br>
+        <!-- uso los dos puntos para hacer referencia a la propieada url -->
+        <a :href="url" >Vtubers hot, click aqui 7w7</a>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            // elementos dentro de data son reactivas
+            data:{
+                nombre:'CosmosTV',
+                url:'https://animefenix.com'
+            }
+        })
+    </script>
+
+</body>
+</html>

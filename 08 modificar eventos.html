@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+</head>
+<body>
+    <!-- cdn 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+
+    <h2>08 modificar eventos</h2>
+
+    <div id="app">
+        <!-- once = permite realizar el evento una sola vez
+        stop = permite realizar el evento en un solo componente -->
+        <button v-on:click.once="saludar('ewewewe')">saludar</button>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                contador:0,
+            },
+            methods:{
+                saludar(texto){
+                    console.log("hola mundo desde vuejs",texto)
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

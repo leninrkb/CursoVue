@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+</head>
+<body>
+    <!-- cdn 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+
+    <h2>07 manejo de eventos</h2>
+
+    <div id="app">
+        <p>{{contador}}</p>
+        <button v-on:mouseover="contador++">sumar</button>
+        <button v-on:click="contador++">sumar</button>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                contador:0
+            },
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenin</title>
+</head>
+<body>
+    <!-- cnd de vue3 -->
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <h1>html con vue 3</h1>
+
+    <!-- un componente es una etiqueta con un id -->
+    <div id="contadorr">
+        contador : {{count}}
+    </div>
+    <!-- script correspondiente al componente con el id -->
+    <script>
+        const Cont = {
+            data(){
+                return{
+                    count:0
+                }
+            },
+            mounted(){
+                setInterval(()=>{
+                    this.count++
+                },500)
+            }
+        }
+        Vue.createApp(Cont).mount('#contador')
+    </script>
+
+</body>
+</html>
