@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="hola">
+        {{nombre}} - {{cont}}s
+        <button v-on:click="detener()">{{mss}}</button>
+    </div>
+    <script>
+        //data / methods / props/ mounted/ computed/ watch/ destroyed
+        const hola = {
+            data() {
+                return {
+                    nombre: 'lenin',
+                    cont: 0,
+                    interval: null,
+                    isRunning: false,
+                    mss:'iniciar'
+                }
+            },
+            mounted() {
+                this.intervalo();
+            },
+            methods: {
+                intervalo() {
+                    this.isRunning = true;
+                    this.mss='detener';
+                    this.interval = setInterval(() => {
+                        this.cont++;
+                    }, 500)
+                },
+                detener() {
+                    if (this.isRunning) {
+                        this.isRunning = false;
+                        this.mss='iniciar';
+                        clearInterval(this.interval);
+                    } else {
+                        this.intervalo();
+                    }
+                }
+            }
+        }
+
+        Vue.createApp(hola).mount('#hola')
+    </script>
+
+</body>
+
+</html>
