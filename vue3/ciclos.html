@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <div>
+            <ul>
+                <li v-for="p in personajes">
+                    {{p}}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li v-for="(p,index) in personajesId" >
+                    {{index}}: {{p.id}} - {{p.nom}}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <select v-model="seleccionado">
+                <option v-for="p in personajesId" v-bind:value="p.id">{{p.nom}}</option>
+            </select>
+            <p>seleccionado id: {{seleccionado}}</p>
+        </div>
+        <div>
+            <hr>
+            for anidado:
+            <ul v-for="v in lista">
+                {{v.nom}}
+                <li v-for="a in v.anios">
+                    {{a.val}}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <hr>
+            recorrriendo una palabra: {{letras}}
+            <p v-for="l in letras">{{l}}</p>
+        </div>
+        <div>
+            <hr>
+            rangos:
+            <select name="" id="">
+                <option v-for="n in 100">{{n}}</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        //data / methods / props/ mounted/ computed/ watch/ destroyed
+        const hola = {
+            data() {
+                return {
+                    personajes:['sakurai','ironman','power','hulk']
+                    ,personajesId:[{id:1,nom:'kazane'},{id:2,nom:'aqua'},{id:3,nom:'kurumi'},]
+                    ,seleccionado:''
+                    ,letras:'lenin acosta'
+                    ,lista:[
+                        {
+                            id:1,
+                            nom:'lenin',
+                            anios:[
+                                {
+                                    an:1,
+                                    val:12
+                                },
+                                {
+                                    an:2,
+                                    val:34
+                                }
+                            ]
+                        },
+                        {
+                            id:2,
+                            nom:'alex',
+                            anios:[
+                                {
+                                    an:1,
+                                    val:78
+                                },
+                                {
+                                    an:2,
+                                    val:43
+                                }
+                            ]
+                        },
+                        {
+                            id:2,
+                            nom:'eva',
+                            anios:null
+                        },
+                    ]
+                }
+            },
+            methods: {
+            }
+        }
+
+        Vue.createApp(hola).mount('#app')
+    </script>
+
+</body>
+
+</html>

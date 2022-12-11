@@ -12,8 +12,35 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="hola">
-        {{nombre}} - {{cont}}s
-        <button v-on:click="detener()">{{mss}}</button>
+        <div>
+            <label v-bind:title="titulo">Hola mundo desde vue3</label>
+            <hr>
+            <div>
+                <button v-on:click="cambiarImagen('scgb.jpg')">urs</button>
+                <button v-on:click="cambiarImagen('sakurai-kun.jpg')">sakurai</button>
+                <button v-on:click="cambiarImagen('nero.jpg')">nero</button>
+                <input type="number" v-model="ancho">
+            </div>
+            <img v-bind:src="imagen" v-bind:width="ancho">
+        </div>
+        <div>
+            {{nombre}} - {{cont}}s
+            <button v-on:click="detener()">{{mss}}</button>
+            <hr>
+        </div>
+        <div>
+            <select name="" id="" v-model="pais">
+                <option value="ecuador">ecuador</option>
+                <option value="peru">peru</option>
+                <option value="colombia">colombia</option>
+            </select>
+            <p>pais seleccionado: {{pais}}</p>
+            <hr>
+        </div>
+        <div>
+            <input type="checkbox" v-model="chbox">
+            <p>seleccionado?: {{chbox}}</p>
+        </div>
     </div>
     <script>
         //data / methods / props/ mounted/ computed/ watch/ destroyed
@@ -24,7 +51,12 @@
                     cont: 0,
                     interval: null,
                     isRunning: false,
-                    mss:'iniciar'
+                    mss:'iniciar',
+                    titulo:'titulo dinamico',
+                    imagen:'',
+                    ancho:100,
+                    pais:'ecuador',
+                    chbox:false
                 }
             },
             mounted() {
@@ -46,6 +78,12 @@
                     } else {
                         this.intervalo();
                     }
+                },
+                cambiarImagen(img){
+                    this.imagen=img;
+                },
+                cambiarAncho(n){
+                    this.ancho=n;
                 }
             }
         }
