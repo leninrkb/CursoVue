@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Correo</th>
+                    <th>Direccion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="s in usuarios">
+                  <td>{{s.name}}</td>
+                  <td>{{s.username}}</td>
+                  <td>{{s.email}}</td>
+                  <td>
+                    <li>calle: {{s.address.street}}</li>
+                    <li>suite: {{s.address.suite}}</li>
+                    <li>ciudad: {{s.address.city}}</li>
+                    <li>zip: {{s.address.zipcode}}</li>
+                    <li>geo: {{s.address.geo.lat}} / {{s.address.geo.lng}}</li>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        //data / methods / props/ mounted/ computed/ watch/ destroyed
+        //https://jsonplaceholder.typicode.com
+        const hola = {
+            data() {
+                return {
+                    usuarios:[]
+                }
+            },
+            mounted(){
+                this.getUsuarios();
+            },
+            methods: {
+                getUsuarios(){
+                    fetch('https://jsonplaceholder.typicode.com/users')
+                    .then(response=>response.json())
+                    .then(data=>{
+                        this.usuarios = data;
+                    });
+                }
+            }
+        }
+
+        var mountedapp = Vue.createApp(hola).mount('#app')
+    </script>
+
+</body>
+
+</html>
