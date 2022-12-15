@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <div id="app">
+        <button v-on:click="ck()">click aqui para ganar 1$</button>
+        <p>dolares ganados: {{contador}}$</p>
+    </div>
+
+    <script>
+        //data / methods / props/ mounted/ computed/ watch/ destroyed
+        //https://jsonplaceholder.typicode.com
+        //v-if v-else v-else-if v-show
+        const hola = {
+            data() {
+                return {
+                    contador:0
+                }
+            },
+            mounted(){
+            },
+            methods: {
+                ck(){
+                    this.contador+=1
+                }
+            }
+        }
+
+        var mountedapp = Vue.createApp(hola).mount('#app')
+    </script>
+
+</body>
+
+</html>
