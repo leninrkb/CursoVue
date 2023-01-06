@@ -17,8 +17,25 @@
 
 
     <div id="app">
-        <button v-on:click="ck()">click aqui para ganar 1$</button>
-        <p>dolares ganados: {{contador}}$</p>
+        
+        <div>
+            <button v-on:click="ck(1)">click aqui para ganar 1$</button>
+        </div>
+        <div>
+            <button  @click="ck(2)" @mouseover="estadomouse=true" @mouseout="estadomouse = false">aqui para ganar 2$</button>
+        </div>
+        <div>
+            <button @click="imswitch()">intercambiar imagenes</button>
+        </div>
+        <div>
+            <p>dolares ganados: {{contador}}$</p>
+            <p>{{estadomouse}}</p>
+        </div>
+        <div>
+            <input type="number" v-model="ancho">
+            <img v-if="estadomouse" v-bind:src="img"  v-bind:width="ancho">
+            <img v-show="!estadomouse" v-bind:src="img2"  v-bind:width="ancho">
+        </div>
     </div>
 
     <script>
@@ -28,19 +45,28 @@
         const hola = {
             data() {
                 return {
-                    contador:0
+                    contador:0,
+                    estadomouse:false,
+                    ancho:100,
+                    img: 'nero.jpg',
+                    img2: 'sakurai-kun.jpg'
                 }
             },
             mounted(){
             },
             methods: {
-                ck(){
-                    this.contador+=1
+                ck(n){
+                    this.contador+=n;
+                },
+                imswitch(){
+                    var i = this.img;
+                    this.img = this.img2;
+                    this.img2 = i;
                 }
             }
         }
 
-        var mountedapp = Vue.createApp(hola).mount('#app')
+        var mountedapp = Vue.createApp(hola).mount('#app');
     </script>
 
 </body>
