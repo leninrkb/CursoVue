@@ -1,0 +1,21 @@
+.rounded{
+    border-radius:10px ;
+}
+.square{
+    height: 50px;
+    width: 50px;
+}
+.rose{
+    background-color: rgb(233, 183, 233);
+}
+.nero{
+    border-color: rgb(27, 27, 65);
+}
+.border-medium{
+    border-width: 2px;
+    border-style: solid;
+}
+.border-high{
+    border-width: 10px;
+    border-style: solid;
+}
