@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+        {{nom}}
+    </div>
+    <script>
+        const app = {
+            data(){
+                return{
+                    nom:'lenin'
+                }
+            }
+            ,beforeCreate(){
+                console.log('antes de ser creado nom='+this.nom);
+            }
+            ,created(){
+                console.log('creado nom='+this.nom);
+            }
+            ,beforeMount(){
+                console.log('antes de ser montado nom='+this.nom);
+            }
+            ,mounted(){
+                console.log('montado nom='+this.nom);
+            }
+            ,beforeUpdate(){
+                console.log('antes de ser actualizado nom='+this.nom);
+            }
+            ,updated(){
+                console.log('actualizado nom='+this.nom);
+            }
+            ,beforeUnmounted(){
+                console.log('antes de ser desmontado nom='+this.nom);
+            }
+            ,unmounted(){
+                console.log('desmontado nom='+this.nom);
+            }
+
+        }
+        var appvue = Vue.createApp(app).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+        <div>
+            <input type="number" v-model="n1">
+            <input type="number" v-model="n2">
+            <p>la suma es {{res}}</p>
+        </div>
+        <div>
+            <input type="text" v-model="fruta">
+            <br>
+            <button @click="agregar_fruta()">agregar</button>
+            <p>total frutas: {{total_frutas}}</p>
+            <li v-for="fruta in frutas">{{fruta}}</li>
+        </div>
+    </div>
+    <script>
+        const app = {
+            data(){
+                return{
+                    n1:0,
+                    n2:0,
+                    frutas:[],
+                    fruta:''
+                }
+            },
+            computed:{
+                res: function(){
+                    return this.n1 + this.n2;
+                },
+                total_frutas: function(){
+                    return this.frutas.length
+                }
+            },
+            methods:{
+                agregar_fruta(){
+                    this.frutas.push(this.fruta);
+                    this.fruta='';
+                }
+            }
+        }
+        var appvue = Vue.createApp(app).mount('#app');
+    </script>
+</body>
+</html>
