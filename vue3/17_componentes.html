@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comp</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        {{nom}}
+        <saludo></saludo>
+        <saludo></saludo>
+        <saludo></saludo>
+        <saludo></saludo>
+        <saludo></saludo>
+    </div>
+    <script>
+        const app = {
+            data() {
+                return {
+                    nom: 'leninrkb'
+                }
+            }
+        }
+        var vue = Vue.createApp(app);
+        vue.component('saludo',{
+            template:`
+                <h3>{{mn}}</h3>
+            `
+            ,data(){
+                return{
+                    mn:'hola mundo desde vue'
+                }
+            }
+        });
+        var mounted_vue = vue.mount('#app');
+    </script>
+</body>
+
+</html>
