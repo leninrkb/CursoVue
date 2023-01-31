@@ -13,11 +13,7 @@
 
     <div id="app">
         {{nom}}
-        <saludo></saludo>
-        <saludo></saludo>
-        <saludo></saludo>
-        <saludo></saludo>
-        <saludo></saludo>
+        <saludo :mn="nom"></saludo>
     </div>
     <script>
         const app = {
@@ -29,13 +25,9 @@
         }
         var vue = Vue.createApp(app);
         vue.component('saludo',{
-            template:`
-                <h3>{{mn}}</h3>
-            `
-            ,data(){
-                return{
-                    mn:'hola mundo desde vue'
-                }
+            template:`<h3>saludos {{mn}}</h3>`
+            ,prop(){
+                mn:''
             }
         });
         var mounted_vue = vue.mount('#app');
