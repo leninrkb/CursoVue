@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <menu-component ref="menuComponent" v-bind:usuario="usuario"></menu-component>
+
+        <div class="container">
+            <div class="row">
+                <div class="col m6">
+                    <label>Usuario</label>
+                    <input type="text" v-model="usuario">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m6">
+                    <label>Correo</label>
+                    <input type="text" v-model="correo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m6">
+                    <label>Clave</label>
+                    <input type="password" v-model="clave">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js"></script>
+    <script src="menu.component.js"></script>
+    <script>
+        const mountedApp = _app.mount('#app')
+    </script>
+</body>
+
+</html>
