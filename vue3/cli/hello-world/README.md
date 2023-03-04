@@ -4,6 +4,20 @@
 ```
 npm install
 ```
+## Install Materialize css
+```
+npm install materialize-css@next
+```
+
+## Install Material icons
+```
+npm install material-icons
+```
+
+## INstall axios and vue-axios
+```
+npm install axios vue-axios
+```
 
 ### Compiles and hot-reloads for development
 ```

@@ -1,19 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld :msg="saludo"/>
+  <div>
+    <h1>Hola mundo</h1>
+    <button class="btn blue" @click='saludar()'>
+      boton
+      <span class="material-icons">save</span>
+    </button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import M from 'materialize-css'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  mounted(){
+    this.axios.get('https://leninrkb.com').then(() => {
+
+    });
   },
   data(){
     return{
-      saludo:'Welcome back lenin :3'
+      saludo:'hola mundo desde vue'
+    }
+  },
+  methods:{
+    saludar(){
+      M.toast({
+        html:this.saludo
+      })
+      console.log('saludo desde app.vue');
     }
   }
 }
