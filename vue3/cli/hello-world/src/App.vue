@@ -65,6 +65,7 @@
               <th>Estado Civil</th>
               <th>Suscrito</th>
               <th>Pasatiempos</th>
+              <th>Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -76,8 +77,11 @@
               <td>{{reg.estado_civil}}</td>
               <td v-if="reg.suscribirse"><i class="material-icons">check</i></td>
               <td v-else><i class="material-icons">close</i></td>
-              <td v-for="(pasatiempo,index) in reg.pasatiempos" :key="index">{{pasatiempo}},</td>
-              <button class="btn-small red accent-2" @click="eliminarRegistro(index)">eliminar</button>
+              <!-- <td v-for="(pasatiempo,index) in reg.pasatiempos" :key="index">{{pasatiempo}}</td> -->
+              <td><span class="new badge" data-badge-caption="#">{{reg.pasatiempos.length}}</span></td>              
+              <td>
+                <button class="btn-small red accent-2" @click="eliminarRegistro(index)">eliminar</button>
+              </td>
             </tr>
           </tbody>
         </table>
