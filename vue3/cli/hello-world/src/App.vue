@@ -226,10 +226,16 @@ export default {
       }
       this.agregarDatosARegistro();
       this.limpiarTodosLosCampos();
+      M.toast({
+        html:'registro agregado!'
+      })
       console.log(this.registro);
     },
     eliminarRegistro(index){
       this.registro.splice(index,1);
+      M.toast({
+        html:'registro #'+index+' eliminado!'
+      })
     },
     registroVacio(){
       if(this.registro.length == 0){
