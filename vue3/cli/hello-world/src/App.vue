@@ -46,22 +46,26 @@
             <label>Mis pasatiempos</label>
             <ul class="collection">
               <li class="collection-item grey lighten-4" v-for="(pasatiempo, index) in pasatiempos" :key="index">{{
-                pasatiempo }} <a href="#!"><i class="material-icons right" @click="quitarPasatiempo(index)">clear</i></a></li> 
+                pasatiempo }} <a href="#!"><i class="material-icons right" @click="quitarPasatiempo(index)">clear</i></a>
+              </li>
             </ul>
           </div>
         </div>
         <hr>
         <div class="row">
-          <button v-if="creando" @click="guardarRegistro()" type="submit" class="btn">Guardar registro <i class="material-icons right">save</i></button>
-          <button v-else type="submit" @click="guardarRegistro()" class="btn">Guardar cambios <i class="material-icons right">edit</i></button>
-          <button type="submit" @click="cancelar()" class="btn">cancelar <i class="material-icons right">cancel</i></button>
+          <button v-if="creando" @click="guardarRegistro()" type="submit" class="btn">Guardar registro <i
+              class="material-icons right">save</i></button>
+          <button v-else @click="guardarRegistro()" class="btn">Guardar cambios <i
+              class="material-icons right">edit</i></button>
+          <button @click="cancelar()" class="btn">cancelar <i
+              class="material-icons right">cancel</i></button>
         </div>
       </div>
     </div>
     <div class="container">
       <h4>Resumen</h4>
       <div class="col m12 card-panel grey lighten-5">
-        <table class="responsive-table striped" v-if="registroVacio()">
+        <table class="responsive-table striped highlight" v-if="registroVacio()">
           <thead>
             <tr>
               <th>Nombre</th>
@@ -82,7 +86,6 @@
               <td>{{ reg.estado_civil }}</td>
               <td v-if="reg.suscribirse"><i class="material-icons">check</i></td>
               <td v-else><i class="material-icons">close</i></td>
-              <!-- <td v-for="(pasatiempo,index) in reg.pasatiempos" :key="index">{{pasatiempo}}</td> -->
               <td><span class="new badge" data-badge-caption="#">{{ reg.pasatiempos.length }}</span></td>
               <td>
                 <a href="#!"><i class="material-icons" @click="eliminarRegistro(index)">delete</i></a>
@@ -255,9 +258,9 @@ export default {
       this.limpiarTodosLosCampos();
 
     },
-    cancelar(){
+    cancelar() {
       this.limpiarTodosLosCampos();
-      this.creando=true;
+      this.creando = true;
     },
     eliminarRegistro(index) {
       this.registro.splice(index, 1);
@@ -298,5 +301,4 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-</style>
+}</style>
