@@ -78,7 +78,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(reg, index) in registro" :key="index">
+            <tr v-for="(reg, index) in registro" :key="index" :class="{'blue lighten-4':index == index_editando}">
               <td>{{ reg.nombre }}</td>
               <td>{{ reg.apellido }}</td>
               <td>{{ reg.edad }}</td>
@@ -261,6 +261,7 @@ export default {
     cancelar() {
       this.limpiarTodosLosCampos();
       this.creando = true;
+      this.index_editando=-1;
     },
     eliminarRegistro(index) {
       this.registro.splice(index, 1);
