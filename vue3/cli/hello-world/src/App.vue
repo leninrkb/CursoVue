@@ -16,18 +16,14 @@
     </nav>
   </div>
 
-  <div class="container">
-    <div class="row"></div>
-    <div class="row"></div>
-    <div class="row"></div>
-    <div class="row"></div>
-    <div class="row"></div>
-
+  <div id="id_container" class="container">
     <div class="row">
       <div id="sobremi">
         <PersonalView></PersonalView>
       </div>
-      <div id="experiencia">Test 2</div>
+      <div id="experiencia">
+        <ExperienciaView></ExperienciaView>
+      </div>
       <div id="proyectos">Test 2</div>
     </div>
   </div>
@@ -36,11 +32,13 @@
 <script>
 import M from 'materialize-css';
 import PersonalView from './views/PersonalView.vue';
+import ExperienciaView from './views/ExperienciaView.vue';
 
 export default {
   name: 'App',
   components: {
-    PersonalView
+    PersonalView,
+    ExperienciaView
   },
   mounted() {
     // Obtener la referencia al elemento ul.tabs
@@ -76,6 +74,10 @@ nav {
   right: 0px;
   padding: 15px;
   margin-bottom: 155px;
+}
+
+#id_container{
+  margin-top: 150px;
 }
 
 .redondeado{
