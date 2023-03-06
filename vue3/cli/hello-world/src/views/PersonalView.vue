@@ -4,7 +4,7 @@
             <SaludoComponent></SaludoComponent>
         </div>
         <div class="col s8 m4 center push-s2">
-            <img class="circle responsive-img" src="../assets/foto.jpg">
+            <img class="circle" src="../assets/foto.jpg">
         </div>
         <div class="col s12 m8">
             <PresentacionComponent></PresentacionComponent>
@@ -23,4 +23,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+img{
+    max-width: 100%;
+}
+</style>

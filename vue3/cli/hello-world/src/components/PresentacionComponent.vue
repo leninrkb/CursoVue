@@ -2,10 +2,11 @@
     <div class="card-panel cyan darken-3 redondeado">
         <span class="white-text">
             <blockquote class="flow-text justificado">
-                Como apasionado de la tecnología,
+                Como entusiasta de la tecnología,
                 he desarrollado habilidades en lenguajes de
-                programación como Python y Java. Tengo
-                experiencia en Inteligencia Artificial y desarrollo web. ¡Estoy
+                programación como Python y Java. He
+                desarrollado proyectos con inteligencia artificial,
+                web y apps de escritorio. ¡Estoy
                 emocionado de compartir mi experiencia y habilidades
                 con ustedes. Espero trabajar en proyectos
                 emocionantes en el futuro!
