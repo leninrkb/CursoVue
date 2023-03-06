@@ -1,5 +1,5 @@
 <template>
-    <div class="card-panel cyan darken-4">
+    <div class="card-panel cyan darken-3 redondeado">
         <span class="white-text">
             <blockquote class="flow-text justificado">
                 Como apasionado de la tecnología,

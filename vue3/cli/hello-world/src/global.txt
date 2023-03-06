@@ -1,0 +1,5 @@
+colores{
+    fondo: #37474f blue-grey darken-3
+    primario: cyan darken-1
+    secundario: cyan darken-3
+}

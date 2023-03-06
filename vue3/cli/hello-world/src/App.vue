@@ -77,4 +77,8 @@ nav {
   padding: 15px;
   margin-bottom: 155px;
 }
+
+.redondeado{
+  border-radius: 40px;
+}
 </style>
