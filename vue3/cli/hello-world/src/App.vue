@@ -1,28 +1,27 @@
 <template>
-  <nav class="nav-extended cyan darken-3">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo right">Mi perfil_</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="lefy hide-on-med-and-down">
-        <li><a href="#">Github</a></li>
-        <li><a href="#">Linkedin</a></li>
-        <li><a href="#">Facebook</a></li>
-      </ul>
+  <div class="container">
+    <div class="row">
+        <nav class="cyan" >
+        <div class="col s12 m4">
+          <h5>Mi portafolio</h5>
+        </div>
+        <div class="col s12 m8">
+          <ul class="tabs tabs-transparent" ref="tabs">
+            <li class="tab"><a href="#sobremi">Sobre Mi</a></li>
+            <li class="tab"><a href="#experiencia">Experiencia</a></li>
+            <li class="tab"><a href="#proyectos">Proyectos</a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
-    <div class="nav-content">
-      <ul class="tabs tabs-transparent" ref="tabs">
-        <li class="tab"><a href="#personal">Personal</a></li>
-        <li class="tab"><a href="#proyectos">Mis proyectos</a></li>
-        <li class="tab"><a href="#contacto">Contacto</a></li>
-      </ul>
+    <div class="row">
+      <div id="sobremi" class="col s12">
+        <PersonalView></PersonalView>
+      </div>
+      <div id="experiencia" class="col s12">Test 2</div>
+      <div id="proyectos" class="col s12">Test 2</div>
     </div>
-  </nav>
-
-  <div id="personal">
-    <PersonalView></PersonalView>
   </div>
-  <div id="proyectos">Test 2</div>
-  <div id="contacto">Test 3</div>
 </template>
 
 <script>
@@ -55,5 +54,9 @@ export default {
 
 body {
   background-color: #2c3e50;
+}
+
+nav{
+  border-radius: 10px;
 }
 </style>
