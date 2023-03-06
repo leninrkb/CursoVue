@@ -3,7 +3,7 @@
         <div class="row">
             <div id="presentacion" class="col m10 white-text">
                 <div class="contenedor">
-                    <p class="saludo">!Hola 👋, soy!</p>
+                    <p class="saludo">!Hola 👋! soy</p>
                     <h1 class="nombre">Lenin Acosta</h1>
                     <p class="descripcion">Desarrollador de software</p>
                 </div>
@@ -56,18 +56,21 @@ export default {
 
 .saludo {
     font-size: 3em;
-    margin-bottom: 0;
+    margin-bottom: 3px;
+    line-height: normal;
 }
 
 .nombre {
     font-size: 5em;
     margin-top: 8px;
     margin-bottom: 2px;
+    line-height: 80%;
 }
 
 .descripcion {
     font-size: 2em;
-    margin: 0;
+    margin: 0px;
+    line-height: normal;
 }
 
 .justificado {
