@@ -14,9 +14,14 @@ npm install materialize-css@next
 npm install material-icons
 ```
 
-## INstall axios and vue-axios
+## Install axios and vue-axios
 ```
 npm install axios vue-axios
+```
+
+## Install vue-router
+```
+npm install vue-router@next
 ```
 
 ### Compiles and hot-reloads for development
