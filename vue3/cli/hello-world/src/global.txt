@@ -1,5 +1,6 @@
 colores{
     fondo: #37474f blue-grey darken-3
     primario: cyan darken-1
-    secundario: cyan darken-3
+    secundario: cyanteal darken-3darken-3
+    secundario: teal darken-3
 }

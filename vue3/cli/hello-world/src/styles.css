@@ -5,3 +5,7 @@
 .margen-abajo{
     margin: 15px;
 }
+
+.justificado {
+    text-align: justify;
+}
