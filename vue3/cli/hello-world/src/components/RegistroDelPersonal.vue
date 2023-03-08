@@ -1,106 +1,105 @@
 <template>
-    <div>
-      <h1>Registro del personal</h1>
-      <div class="container">
-        <div class="col m12 card-panel grey lighten-5">
-          <div class="col m4 input-field">
-            <label>nombre</label>
-            <input type="text" v-model="nombre" required>
+  <div>
+    <h1>Registro del personal</h1>
+    <div class="container">
+      <div class="col m12 card-panel grey lighten-5">
+        <div class="col m4 input-field">
+          <label>nombre</label>
+          <input type="text" v-model="nombre" required>
+        </div>
+        <div class="col m4 input-field">
+          <label>apellido</label>
+          <input type="text" v-model="apellido" required>
+        </div>
+        <div class="col m4 input-field">
+          <label>email</label>
+          <input type="email" v-model="email" required>
+        </div>
+        <div class="row">
+          <div class="col m4">
+            <label>edad</label>
+            <input type="number" v-model="edad" max="99" min="10">
           </div>
-          <div class="col m4 input-field">
-            <label>apellido</label>
-            <input type="text" v-model="apellido" required>
+          <div class="col m4">
+            <label>estado civil</label>
+            <select v-model="estado_civil">
+              <option v-for="(estado, index) in estados_civiles" :key="index" v-bind:value="estado">{{ estado }}
+              </option>
+            </select>
           </div>
-          <div class="col m4 input-field">
-            <label>email</label>
-            <input type="email" v-model="email" required>
-          </div>
-          <div class="row">
-            <div class="col m4">
-              <label>edad</label>
-              <input type="number" v-model="edad" max="99" min="10">
-            </div>
-            <div class="col m4">
-              <label>estado civil</label>
-              <select v-model="estado_civil">
-                <option v-for="(estado, index) in estados_civiles" :key="index" v-bind:value="estado">{{ estado }}
-                </option>
-              </select>
-            </div>
-            <div class="col m4">
-              <label>
-                <input type="checkbox" class="filled-in" v-model="suscribirse" />
-                <span>Suscribirse al plan mensual de la empresa AOT company para recibir las mejores promociones</span>
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col m4 input-field">
-              <label>Pasatiempo</label>
-              <input type="text" v-model="pasatiempo">
-              <button class="btn" @click="limpiarPasatiempo()"><i class="material-icons right">clear</i> </button>
-              <button class="btn" @click="agregarPasatiempo()"><i class="material-icons right">add</i>
-              </button>
-            </div>
-            <div class="col m4">
-              <label>Mis pasatiempos</label>
-              <ul class="collection">
-                <li class="collection-item grey lighten-4" v-for="(pasatiempo, index) in pasatiempos" :key="index">{{
-                  pasatiempo }} <a href="#!"><i class="material-icons right" @click="quitarPasatiempo(index)">clear</i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <button v-if="creando" @click="guardarRegistro()" type="submit" class="btn">Guardar registro <i
-                class="material-icons right">save</i></button>
-            <button v-else @click="guardarRegistro()" class="btn">Guardar cambios <i
-                class="material-icons right">edit</i></button>
-            <button @click="cancelar()" class="btn">cancelar <i
-                class="material-icons right">cancel</i></button>
+          <div class="col m4">
+            <label>
+              <input type="checkbox" class="filled-in" v-model="suscribirse" />
+              <span>Suscribirse al plan mensual de la empresa AOT company para recibir las mejores promociones</span>
+            </label>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <h4>Resumen</h4>
-        <div class="col m12 card-panel grey lighten-5">
-          <table class="responsive-table striped highlight" v-if="registroVacio()">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Email</th>
-                <th>Estado Civil</th>
-                <th>Suscrito</th>
-                <th>Pasatiempos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(reg, index) in registro" :key="index" :class="{'blue lighten-4':index == index_editando}">
-                <td>{{ reg.nombre }}</td>
-                <td>{{ reg.apellido }}</td>
-                <td>{{ reg.edad }}</td>
-                <td>{{ reg.email }}</td>
-                <td>{{ reg.estado_civil }}</td>
-                <td v-if="reg.suscribirse"><i class="material-icons">check</i></td>
-                <td v-else><i class="material-icons">close</i></td>
-                <td><span class="new badge" data-badge-caption="#">{{ reg.pasatiempos.length }}</span></td>
-                <td>
-                  <a href="#!"><i class="material-icons" @click="eliminarRegistro(index)">delete</i></a>
-                </td>
-                <td>
-                  <a href="#!"><i class="material-icons" @click="editarRegistro(index)">edit</i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <p v-else>No existen registros por mostrar</p>
+        <div class="row">
+          <div class="col m4 input-field">
+            <label>Pasatiempo</label>
+            <input type="text" v-model="pasatiempo">
+            <button class="btn" @click="limpiarPasatiempo()"><i class="material-icons right">clear</i> </button>
+            <button class="btn" @click="agregarPasatiempo()"><i class="material-icons right">add</i>
+            </button>
+          </div>
+          <div class="col m4">
+            <label>Mis pasatiempos</label>
+            <ul class="collection">
+              <li class="collection-item grey lighten-4" v-for="(pasatiempo, index) in pasatiempos" :key="index">{{
+                pasatiempo }} <a href="#!"><i class="material-icons right" @click="quitarPasatiempo(index)">clear</i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <button v-if="creando" @click="guardarRegistro()" type="submit" class="btn">Guardar registro <i
+              class="material-icons right">save</i></button>
+          <button v-else @click="guardarRegistro()" class="btn">Guardar cambios <i
+              class="material-icons right">edit</i></button>
+          <button @click="cancelar()" class="btn">cancelar <i class="material-icons right">cancel</i></button>
         </div>
       </div>
     </div>
-  </template>
+    <div class="container">
+      <h4>Resumen</h4>
+      <div class="col m12 card-panel grey lighten-5">
+        <table class="responsive-table striped highlight" v-if="registroVacio()">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Edad</th>
+              <th>Email</th>
+              <th>Estado Civil</th>
+              <th>Suscrito</th>
+              <th>Pasatiempos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(reg, index) in registro" :key="index" :class="{ 'blue lighten-4': index == index_editando }">
+              <td>{{ reg.nombre }}</td>
+              <td>{{ reg.apellido }}</td>
+              <td>{{ reg.edad }}</td>
+              <td>{{ reg.email }}</td>
+              <td>{{ reg.estado_civil }}</td>
+              <td v-if="reg.suscribirse"><i class="material-icons">check</i></td>
+              <td v-else><i class="material-icons">close</i></td>
+              <td><span class="new badge" data-badge-caption="#">{{ reg.pasatiempos.length }}</span></td>
+              <td>
+                <a href="#!"><i class="material-icons" @click="eliminarRegistro(index)">delete</i></a>
+              </td>
+              <td>
+                <a href="#!"><i class="material-icons" @click="editarRegistro(index)">edit</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p v-else>No existen registros por mostrar</p>
+      </div>
+    </div>
+  </div>
+</template>
 
 <script>
 import M from 'materialize-css'
@@ -110,6 +109,7 @@ export default {
     var elems = document.querySelectorAll('select');
     this.instances = M.FormSelect.init(elems, null);
     this.datosInicio();
+    this.cargarDatos();
   },
   data() {
     return {
@@ -137,6 +137,13 @@ export default {
     }
   },
   methods: {
+    async cargarDatos() {
+      await this.axios.get('/get_empleados').then(res => {
+        console.log(res);
+      }).catch(error => {
+        console.log(error);
+      });
+    },
     datosInicio() {
       const datos = {};
       datos.nombre = 'lenin';
@@ -261,7 +268,7 @@ export default {
     cancelar() {
       this.limpiarTodosLosCampos();
       this.creando = true;
-      this.index_editando=-1;
+      this.index_editando = -1;
     },
     eliminarRegistro(index) {
       this.registro.splice(index, 1);
