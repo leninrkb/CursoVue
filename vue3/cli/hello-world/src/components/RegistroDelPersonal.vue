@@ -139,7 +139,18 @@ export default {
   methods: {
     async cargarDatos() {
       await this.axios.get('/get_empleados').then(res => {
-        console.log(res);
+        console.log(res.data);
+        this.registro = res.data.map(e => {
+          return{
+            nombre : e.nombre,
+            apellido : e.apellido,
+            edad : e.edad,
+            estado_civil : e.estado_civil,
+            suscribirse : e.suscrito == 1 ? true : false,
+            pasatiempos : e.pasatiempos,
+            email : e.email,
+          }
+        })
       }).catch(error => {
         console.log(error);
       });
