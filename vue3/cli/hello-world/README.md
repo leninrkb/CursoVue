@@ -1,5 +1,10 @@
 # hello-world
 
+## Create project
+```
+vue create hello-world
+```
+
 ## Project setup
 ```
 npm install

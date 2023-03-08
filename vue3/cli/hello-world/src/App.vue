@@ -24,7 +24,9 @@
       <div id="experiencia">
         <ExperienciaView></ExperienciaView>
       </div>
-      <div id="proyectos">Test 2</div>
+      <div id="proyectos">
+        <RegistroDelPersonal></RegistroDelPersonal>
+      </div>
     </div>
   </div>
 </template>
@@ -33,12 +35,14 @@
 import M from 'materialize-css';
 import PersonalView from './views/PersonalView.vue';
 import ExperienciaView from './views/ExperienciaView.vue';
+import RegistroDelPersonal from './components/RegistroDelPersonal.vue';
 
 export default {
   name: 'App',
   components: {
     PersonalView,
-    ExperienciaView
+    ExperienciaView,
+    RegistroDelPersonal
   },
   mounted() {
     // Obtener la referencia al elemento ul.tabs
