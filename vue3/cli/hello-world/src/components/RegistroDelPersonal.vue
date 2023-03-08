@@ -108,7 +108,6 @@ export default {
   mounted() {
     var elems = document.querySelectorAll('select');
     this.instances = M.FormSelect.init(elems, null);
-    this.datosInicio();
     this.cargarDatos();
   },
   data() {
@@ -139,7 +138,6 @@ export default {
   methods: {
     async cargarDatos() {
       await this.axios.get('/get_empleados').then(res => {
-        console.log(res.data);
         this.registro = res.data.map(e => {
           return{
             nombre : e.nombre,
@@ -154,17 +152,6 @@ export default {
       }).catch(error => {
         console.log(error);
       });
-    },
-    datosInicio() {
-      const datos = {};
-      datos.nombre = 'lenin';
-      datos.apellido = 'acosta';
-      datos.email = 'lenin@gmail.com';
-      datos.edad = '23';
-      datos.estado_civil = this.estados_civiles[0];
-      datos.suscribirse = true;
-      datos.pasatiempos = [];
-      this.registro.push(datos);
     },
     agregarPasatiempo() {
       this.pasatiempo = this.pasatiempo.trim();
