@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" class="container mx-auto">
+        <div class="mx-auto w-fit flex flex-wrap gap-5 my-5">
+            <h1 class="text-xl font-semibold">{{greeting}}</h1>
+            <input class="bg-cyan-100 rounded-lg p-2" type="text" v-model="greeting"> 
+        </div>
+        
+        <hr>
+        <input type="checkbox" v-model="isVisible">
+        <div class="w-fit bg-cyan-100" v-if="isVisible">
+            si se muestra mi loco 1 
+        </div>
+        <div class="w-fit bg-cyan-100" v-else-if="!isVisible">
+            si se muestra mi loco 2
+        </div>
+        <div class="w-fit bg-cyan-100" v-else>
+            si se muestra mi loco 3
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    greeting: 'Vue 3 basics',
+                    isVisible: false
+                }
+            },
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>
