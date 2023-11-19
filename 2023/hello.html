@@ -12,9 +12,9 @@
             <h1 class="text-xl font-semibold">{{greeting}}</h1>
             <input class="bg-cyan-100 rounded-lg p-2" type="text" v-model="greeting"> 
         </div>
-        
         <hr>
-        <input type="checkbox" v-model="isVisible">
+        <input type="checkbox" v-model="isVisible" name="checkme">
+        <label for="checkme">Mostrar 1</label>
         <div class="w-fit bg-cyan-100" v-if="isVisible">
             si se muestra mi loco 1 
         </div>
@@ -24,7 +24,9 @@
         <div class="w-fit bg-cyan-100" v-else>
             si se muestra mi loco 3
         </div>
-
+        <hr>
+        <button v-on:click="showimg">Show a new image</button>
+        <img v-bind:src="img" alt="img">
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -32,7 +34,14 @@
             data() {
                 return {
                     greeting: 'Vue 3 basics',
-                    isVisible: false
+                    isVisible: false,
+                    img: 'https://picsum.photos/200/300?random=123'
+                }
+            },
+            methods: {
+                showimg(){
+                    let random = Math.floor(Math.random() * 100);
+                    this.img = 'https://picsum.photos/200/300?random='+random;
                 }
             },
         });

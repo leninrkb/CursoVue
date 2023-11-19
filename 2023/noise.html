@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matriz de Ruido</title>
+</head>
+
+<body>
+    <div id="app">
+        <canvas id="canvas" :width="canvas_width" :height="canvas_height"></canvas>
+        <br>
+        <label for="canvas_width">Width</label>
+        <input type="number" name="canvas_width" v-model="canvas_width">
+        <br>
+        <label for="canvas_height">Height</label>
+        <input type="number" name="canvas_height" v-model="canvas_height">
+        <hr />
+        <button @click="generateNew">Generate new</button>
+        <br>
+        <label for="width">Width</label>
+        <input type="number" name="width" v-model="width">
+        <br>
+        <label for="height">Height</label>
+        <input type="number" name="height" v-model="height">
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    width: 100,
+                    height: 100,
+                    canvas_width: 100,
+                    canvas_height: 100,
+                }
+            },
+            mounted() { 
+                this.generateNew();
+            },
+            methods: {
+                generarMatrizRuido(filas, columnas) {
+                    const matriz = [];
+                    for (let i = 0; i < filas; i++) {
+                        const fila = [];
+                        for (let j = 0; j < columnas; j++) {
+                            fila.push(Math.random());
+                        }
+                        matriz.push(fila);
+                    }
+                    return matriz;
+                },
+                dibujarMatrizRuido(matriz, canvas) {
+                    const ctx = canvas.getContext("2d");
+                    const anchoCelda = canvas.width / matriz[0].length;
+                    const altoCelda = canvas.height / matriz.length;
+
+                    for (let i = 0; i < matriz.length; i++) {
+                        for (let j = 0; j < matriz[i].length; j++) {
+                            const color = Math.floor(matriz[i][j] * 255);
+                            ctx.fillStyle = `rgb(${color}, ${color}, ${color})`;
+                            ctx.fillRect(
+                                j * anchoCelda,
+                                i * altoCelda,
+                                anchoCelda,
+                                altoCelda
+                            );
+                        }
+                    }
+                },
+                generateNew() {
+                    const matrizRuido = this.generarMatrizRuido(this.width, this.height);
+                    const canvas = document.getElementById("canvas");
+                    this.dibujarMatrizRuido(matrizRuido, canvas);
+                },
+            },
+        });
+        app.mount("#app");
+    </script>
+</body>
+
+</html>
