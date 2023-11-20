@@ -10,7 +10,7 @@
     <div id="app" class="container mx-auto">
         <div class="mx-auto w-fit flex flex-wrap gap-5 my-5">
             <h1 class="text-xl font-semibold">{{greeting}}</h1>
-            <input class="bg-cyan-100 rounded-lg p-2" type="text" v-model="greeting"> 
+            <input @keyup.enter="greet" class="bg-cyan-100 rounded-lg p-2" type="text" v-model="greeting"> 
         </div>
         <hr>
         <input type="checkbox" v-model="isVisible" name="checkme">
@@ -27,6 +27,8 @@
         <hr>
         <button v-on:click="showimg">Show a new image</button>
         <img v-bind:src="img" alt="img">
+        <hr>
+        <login-form></login-form>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -42,6 +44,33 @@
                 showimg(){
                     let random = Math.floor(Math.random() * 100);
                     this.img = 'https://picsum.photos/200/300?random='+random;
+                },
+                greet(){
+                    this.greeting += " kuchau";
+                },
+            },
+        });
+        app.component("login-form",{
+            template:`
+            <h1 class="text-xl">Login</h1>
+            <form @submit.prevent="handleSubmit">
+            <div class="flex flex-wrap gap-5 p-1">
+                <input class="p-2 bg-teal-200" type="text" v-model="email">
+                <input class="p-2 bg-teal-200" type="password" v-model="password">
+                <button>Login</button>
+            </div>
+            </form>
+            `,
+            data(){
+                return{
+                    email:"",
+                    password:""
+                }
+            },
+            methods: {
+                handleSubmit(){
+                    console.log(this.email + this.password);
+                    console.log("submitted");
                 }
             },
         });
