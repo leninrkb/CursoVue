@@ -1,17 +1,15 @@
 <template>
-  <div class="py-1">
-    <div>
-      <Card>
-        barra de navegacion
-      </Card>
-    </div>
-    <div class="mt-1">
-      <Card>
-        renderizo segun de al boton
-      </Card>
-    </div>
+  <div class="bg-teal-500 flex flex-wrap gap-5 p-2">
+    <CardV1>asdasd</CardV1>
+    <CardV1>asdasd</CardV1>
+    <CardV1>asdasd</CardV1>
+    <CardV1>asdasd</CardV1>
+    <CardV1>asdasd</CardV1>
+    <CardV1>asdasd</CardV1>
+    <CardV1>asdasd</CardV1>
+    <CardV1>asdasd</CardV1>
+    <CardV1>asdasd</CardV1>
   </div>
-  
 </template>
 
 <script>
