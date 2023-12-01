@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<title>Vue 3</title>
+</head>
+<body>
+	<div id="app" class="flex items-center justify-center h-screen">
+		<div class="border-2 border-cyan-500 p-5 rounded-lg hover:bg-cyan-100 transition ease-in-out duration-300"> 
+			<div>
+				<div class="capitalize font-bold mx-auto w-fit p-2">
+					{{title}}
+				</div>
+				<form v-on:submit.prevent="get_user" accept-charset="utf-8">
+					<div class="mx-auto w-fit">
+						<div class="flex flex-nowrap gap-2">
+							<input v-model="username" class="border-2 border-amber-300 p-2 rounded-lg" type="text" name="search">
+							<button class="hover:bg-amber-300 hover:shadow-lg rounded-lg p-2 transition ease-in-out duration-500">Go</button>
+						</div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<!-- scripts -->
+	<script src="js/main.js"></script>
+</body>
+</html>
