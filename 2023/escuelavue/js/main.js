@@ -1,20 +1,28 @@
-const API = "https://api.github.com/users/";
-
-
+const API = "https://api.github.com/users/"
 
 const app = Vue.createApp({
 	data(){
 		return{
 			title: "search github users"
-			,username: null
+			,search: null
+			,result: null 
+			,error: null
 		}
 	},
 	methods:{
 		async get_user() {
-			let resp = await fetch(API + this.username);
-			let data = await resp.json();
-			this.username = "";
-			console.log(data);
+			this.error = null
+			this.result = null
+			try{
+				let resp = await fetch(API + this.search)
+				if(!resp.ok) throw new Error("User not found")
+				this.result = resp 
+			}catch(error){
+				this.error = error
+			}finally{
+				this.search = null 
+			}
+			
 		}
 	}
 })
