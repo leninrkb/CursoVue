@@ -26,10 +26,10 @@
 			<div v-if="result" class="rounded-lg border-2 border-amber-300 mt-2 p-2">
 				<div>
 					<div class="uppercase font-bold text-lg">
-						<p>Titulo</p>
+						<p>{{result.name}}</p>
 					</div>
 					<div class="flex flex-nowrap gap-3">
-						<img class="rounded-lg w-1/4" src="https://picsum.photos/200" alt="image">
+						<img class="rounded-lg w-1/4" :src="result.avatar_url" alt="image">
 						<div class="">
 							<div class="max-w-max h-32 overflow-auto">
 								<p class="">
@@ -42,7 +42,7 @@
 								</p>	
 							</div>
 							<div class="underline decoration-1 text-cyan-500 hover:text-cyan-700 w-fit">
-								<a href="#" title="animefenix">Anime Fenix</a>
+								<a :href="result.html_url" >{{result.login}}</a>
 							</div>
 						</div>
 					</div>
