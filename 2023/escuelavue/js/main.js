@@ -7,10 +7,11 @@ const app = Vue.createApp({
 			,search: null
 			,result: null 
 			,error: null
+			,favorites: new Map()
 		}
 	},
 	methods:{
-		async get_user() {
+		async getUser() {
 			this.error = null
 			this.result = null
 			try{
@@ -18,14 +19,14 @@ const app = Vue.createApp({
 				if(!resp.ok) throw new Error("User not found")
 				let data = await resp.json()
 				this.result = data 
-
-				console.log(data);
 			}catch(error){
 				this.error = error
 			}finally{
 				this.search = null 
-			}
-			
+			}	
+		},
+		setFavorite(){
+			this.favorites.set(this.result.id, this.result)
 		}
 	}
 })
