@@ -14,58 +14,77 @@
 </head>
 
 <body>
-	<div id="app" class="flex items-center justify-center h-screen">
-		<div class="border-2 border-cyan-500 p-5 rounded-lg w-full mx-20">
-			<div class="hover:bg-cyan-100 transition ease-in-out duration-300 p-2 rounded-lg">
-				<div class="capitalize font-bold mx-auto w-fit p-2">
-					{{title}}
+	<div id="app">
+
+		<!-- favorites list -->
+		<div class="flex flex-row p-2 gap-5">
+			<div class="w-fit p-2 rounded-lg bg-amber-500" v-for="user in favoritesList">
+				<label for="">{{user.login}}</label>
+				<img class="w-10 rounded-lg" :src="user.avatar_url" :alt="user.login">
+			</div>
+		</div>
+
+		<!-- search -->
+		<div class="flex items-center justify-center h-screen">
+			<div class="border-2 border-cyan-500 p-5 rounded-lg w-full mx-20">
+				<div class="hover:bg-cyan-100 transition ease-in-out duration-300 p-2 rounded-lg">
+					<div class="capitalize font-bold mx-auto w-fit p-2">
+						{{title}}
+					</div>
+					<form v-on:submit.prevent="getUser" accept-charset="utf-8">
+						<div class="mx-auto w-fit">
+							<div class="flex flex-nowrap gap-2">
+								<input v-model="search" class="border-2 border-amber-300 p-2 rounded-lg" type="text"
+									name="search">
+								<button
+									class="hover:bg-amber-300 hover:shadow-lg rounded-lg p-2 transition ease-in-out duration-500">Go</button>
+							</div>
+						</div>
+					</form>
 				</div>
-				<form v-on:submit.prevent="getUser" accept-charset="utf-8">
+
+				<!-- result -->
+				<div v-if="result" class="rounded-lg border-2 border-amber-300 mt-2 p-2">
+					<div>
+						<div class="flex flex-row-reverse">
+							<button v-if="isFavorite" class="p-2 rounded-lg bg-amber-400 hover:bg-amber-500"
+								@click="removeFavorite"> Remove <i class="fa-regular fa-star"></i></button>
+							<button v-else class="p-2 rounded-lg bg-amber-400 hover:bg-amber-500" @click="setFavorite">
+								Add <i class="fa-regular fa-star"></i></button>
+						</div>
+						<div class="uppercase font-bold text-lg">
+							<p>{{result.name}}</p>
+						</div>
+						<div class="flex flex-nowrap gap-3">
+							<img class="rounded-lg w-1/4" :src="result.avatar_url" alt="image">
+							<div class="">
+								<div class="max-w-max h-32 overflow-auto">
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+										proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									</p>
+								</div>
+								<div class="underline decoration-1 text-cyan-500 hover:text-cyan-700 w-fit">
+									<a :href="result.html_url" target="_blank">{{result.login}}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div v-else>
 					<div class="mx-auto w-fit">
-						<div class="flex flex-nowrap gap-2">
-							<input v-model="search" class="border-2 border-amber-300 p-2 rounded-lg" type="text"
-								name="search">
-							<button
-								class="hover:bg-amber-300 hover:shadow-lg rounded-lg p-2 transition ease-in-out duration-500">Go</button>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div v-if="result" class="rounded-lg border-2 border-amber-300 mt-2 p-2">
-				<div>
-					<div class="flex flex-row-reverse">
-						<button class="p-2 rounded-lg bg-amber-400 hover:bg-amber-500" @click="setFavorite"> Add <i class="fa-regular fa-star"></i></button>
-					</div>
-					<div class="uppercase font-bold text-lg">
-						<p>{{result.name}}</p>
-					</div>
-					<div class="flex flex-nowrap gap-3">
-						<img class="rounded-lg w-1/4" :src="result.avatar_url" alt="image">
-						<div class="">
-							<div class="max-w-max h-32 overflow-auto">
-								<p class="">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								</p>
-							</div>
-							<div class="underline decoration-1 text-cyan-500 hover:text-cyan-700 w-fit">
-								<a :href="result.html_url" target="_blank">{{result.login}}</a>
-							</div>
-						</div>
+						<p class="font-light italic text-md">Try typing something...</p>
 					</div>
 				</div>
-			</div>
-			<div v-else>
-				<div class="mx-auto w-fit">
-					<p class="font-light italic text-md">Try typing something...</p>
+				
+
+				<div class="bg-red-500" v-if="error">
+					<div class="w-fit m-auto">{{error}}</div>
 				</div>
-			</div>
-			<div class="bg-red-500" v-if="error">
-				<div class="w-fit m-auto">{{error}}</div>
 			</div>
 		</div>
 	</div>
