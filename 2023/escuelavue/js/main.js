@@ -12,12 +12,8 @@ const app = Vue.createApp({
 			, favorites: new Map()
 		}
 	},
-	beforeMount() {
+	created() {
 		this.loadFavorites()
-		window.addEventListener('beforeunload', function (e) {
-			e.preventDefault();
-			e.returnValue = '';
-		});
 	},
 	computed: {
 		isFavorite() {
@@ -55,22 +51,29 @@ const app = Vue.createApp({
 		},
 		setFavorite() {
 			this.favorites.set(this.result.id, this.result)
+			this.updateStorage()
 		},
 		removeFavorite() {
 			this.favorites.delete(this.result.id)
+			this.updateStorage()
 		},
-		saveFavorites() {
-			window.localStorage.setItem("favorites", JSON.stringify(this.favorites))
+		updateStorage() {
+			window.localStorage.setItem("favorites", JSON.stringify(this.favoritesList))
 		},
 		loadFavorites() {
 			let items = window.localStorage.getItem("favorites")
 			if (items != null) {
-				this.favorites = JSON.parse(items)
+				items = JSON.parse(items)
+				if(items.length > 0){
+					this.favorites = new Map(items.map(f => {
+						return [f.id, f]
+					}))
+				}
 			}
 		},
 		saveSearchLocal() {
 			let item = JSON.stringify(this.result)
-			window.sessionStorage.setItem(this.search, item);
+			window.sessionStorage.setItem(this.search, item)
 		},
 		getSearchLocal() {
 			let item = window.sessionStorage.getItem(this.search)
