@@ -84,6 +84,9 @@ const app = Vue.createApp({
 			}
 			return false
 		},
+		showFavorite(user){
+			this.result = user
+		}
 
 	},
 })

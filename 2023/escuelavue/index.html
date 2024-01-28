@@ -18,7 +18,7 @@
 
 		<!-- favorites list -->
 		<div class="flex flex-row p-2 gap-5">
-			<div class="w-fit p-2 rounded-lg bg-amber-500" v-for="user in favoritesList">
+			<div @click="showFavorite(user)" class="w-fit p-2 rounded-lg bg-amber-500" v-for="user in favoritesList">
 				<label for="">{{user.login}}</label>
 				<img class="w-10 rounded-lg" :src="user.avatar_url" :alt="user.login">
 			</div>
