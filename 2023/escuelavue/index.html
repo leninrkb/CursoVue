@@ -20,10 +20,14 @@
 		<!-- favorites list -->
 		<div class="flex flex-row p-2 gap-5">
 			<transition-group>
-				<div @click="showFavorite(user)" class="w-fit p-2 rounded-lg bg-amber-500" v-for="user in favoritesList"
+				<div 
+					@click="showFavorite(user)" 
+					class="w-fit p-2 rounded-lg bg-gray-200" 
+					:class="{'bg-teal-500':isFavoriteAcive(user)}"
+					v-for="user in favoritesList"
 					:key="user">
-					<label for="">{{user.login}}</label>
-					<img class="w-10 rounded-lg" :src="user.avatar_url" :alt="user.login">
+						<label for="">{{user.login}}</label>
+						<img class="w-10 rounded-lg" :src="user.avatar_url" :alt="user.login">
 				</div>
 			</transition-group>
 		</div>

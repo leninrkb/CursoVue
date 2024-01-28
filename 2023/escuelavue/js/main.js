@@ -86,6 +86,9 @@ const app = Vue.createApp({
 		},
 		showFavorite(user){
 			this.result = user
+		},
+		isFavoriteAcive(user){
+			return user.login === this.result?.login
 		}
 
 	},
