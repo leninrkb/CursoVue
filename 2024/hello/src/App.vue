@@ -1,5 +1,7 @@
 <template>
   <h1>Hola mundo</h1>
+  <ClassBind></ClassBind>
+  <ExampleFor></ExampleFor>
   <ExampleSelective></ExampleSelective>
   <CounterComposition></CounterComposition>
   <CounterOption></CounterOption>
@@ -7,6 +9,8 @@
 </template>
 
 <script lang="ts" setup>
+import ClassBind from '@/components/ClassBind.vue'
+import ExampleFor from '@/components/ExampleFor.vue'
 import PostContainer from '@/components/PostContainer.vue'
 import CounterOption from '@/components/CounterOption.vue'
 import CounterComposition from '@/components/CounterComposition.vue'
