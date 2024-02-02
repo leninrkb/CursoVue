@@ -1,5 +1,6 @@
 <template>
   <h1>Hola mundo</h1>
+  <ModelForm></ModelForm>
   <ClassBind></ClassBind>
   <ExampleFor></ExampleFor>
   <ExampleSelective></ExampleSelective>
@@ -9,6 +10,7 @@
 </template>
 
 <script lang="ts" setup>
+import ModelForm from "@/components/ModelForm.vue";
 import ClassBind from '@/components/ClassBind.vue'
 import ExampleFor from '@/components/ExampleFor.vue'
 import PostContainer from '@/components/PostContainer.vue'
@@ -34,5 +36,11 @@ import ExampleSelective from '@/components/ExampleSelective.vue'
 }
 .btn:hover{
     background-color: rgb(57, 230, 172);
+}
+
+.input{
+  background-color: rgb(57, 230, 172, 0.5);
+  padding: 0.5em;
+  border-radius: 0.5em;
 }
 </style>

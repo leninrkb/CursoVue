@@ -3,6 +3,7 @@
         aqui cualquier mensaje
     </p>
     <button class="btn" @click="toggle">toggle state</button>
+    <hr>
 </template>
 
 <script lang="ts" setup>
