@@ -1,5 +1,6 @@
 <template>
   <h1>Hola mundo</h1>
+  <ExampleSelective></ExampleSelective>
   <CounterComposition></CounterComposition>
   <CounterOption></CounterOption>
   <PostContainer></PostContainer>
@@ -9,6 +10,7 @@
 import PostContainer from '@/components/PostContainer.vue'
 import CounterOption from '@/components/CounterOption.vue'
 import CounterComposition from '@/components/CounterComposition.vue'
+import ExampleSelective from '@/components/ExampleSelective.vue'
 </script>
 
 <style>
