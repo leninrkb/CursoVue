@@ -1,5 +1,6 @@
 <template>
   <h1>Hola mundo</h1>
+  <LifeCycle></LifeCycle>
   <ModelForm></ModelForm>
   <ClassBind></ClassBind>
   <ExampleFor></ExampleFor>
@@ -10,6 +11,7 @@
 </template>
 
 <script lang="ts" setup>
+import { LifeCycle } from "@/components/LifeCycle.vue";
 import ModelForm from "@/components/ModelForm.vue";
 import ClassBind from '@/components/ClassBind.vue'
 import ExampleFor from '@/components/ExampleFor.vue'
