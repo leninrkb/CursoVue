@@ -1,5 +1,8 @@
 <template>
+    <h5 v-font-size>v-font-size</h5>
+    <h5 v-custom-size="0.7">v-custom-size</h5>
     <input type="number" step="0.1" v-model="taxes">
+    <br>
     product: <input type="text" v-model="product.name"> -> 
     price: <input type="number" v-model="product.price"> : 
     <button class="btn" @click="addProductHandler">add</button>
