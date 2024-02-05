@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { LifeCycle } from "@/components/LifeCycle.vue";
+import LifeCycle from "@/components/LifeCycle.vue";
 import ModelForm from "@/components/ModelForm.vue";
 import ClassBind from '@/components/ClassBind.vue'
 import ExampleFor from '@/components/ExampleFor.vue'

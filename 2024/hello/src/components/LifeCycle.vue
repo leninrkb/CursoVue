@@ -1,11 +1,12 @@
 <template>
-    <div class="class">{{init}}</div>
+    <div class="class">hola</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-let init = ref('hello world')
+import { onMounted } from 'vue'
+onMounted(() => {
+    console.log('mounted');
+})
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
