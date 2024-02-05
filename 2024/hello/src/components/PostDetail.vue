@@ -7,7 +7,28 @@
     </div>
 </template>
 
-<script lang="ts">
+
+<script lang="ts" setup>
+import { defineProps, defineEmits } from "vue"; 
+const props = defineProps({
+    title:{
+        type: String,
+        required: true
+    },
+    content:{
+        type: String,
+        required: false,
+        default: 'post with no text'
+    }
+})
+const emit = defineEmits(['current'])
+const handleCurrent = () => {
+    emit("current", props.title)
+}
+</script>
+
+<!-- <script lang="ts">
+// composition api without setup
 import { defineComponent } from "vue";
 export default defineComponent({
     name:'post-detail',
@@ -30,7 +51,7 @@ export default defineComponent({
         return{props, handleCurrent}
     }
 })
-</script>
+</script> -->
 
 <style scoped>
 .post{

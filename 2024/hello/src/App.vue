@@ -1,5 +1,6 @@
 <template>
-  <h1>Hola mundo</h1>
+  <ComputedBill></ComputedBill>
+  <ComputedExample></ComputedExample>
   <PostList></PostList>
   <LifeCycle></LifeCycle>
   <ModelForm></ModelForm>
@@ -12,6 +13,8 @@
 </template>
 
 <script lang="ts" setup>
+import ComputedBill from '@/components/ComputedBill.vue'
+import ComputedExample from "@/components/ComputedExample.vue";
 import PostList from "@/components/PostList.vue";
 import LifeCycle from "@/components/LifeCycle.vue";
 import ModelForm from "@/components/ModelForm.vue";

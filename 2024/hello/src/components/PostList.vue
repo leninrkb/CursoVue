@@ -24,6 +24,9 @@ let info = [
     {
         title: 'bach',
         content: 'johan composed beatiful and lovely pieces of music'
+    },
+    {
+        title:'vacio'
     }
 ]
 let currentPost = ref(info[0].title)
