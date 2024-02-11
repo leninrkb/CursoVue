@@ -3,6 +3,9 @@
   <p class="font">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid adipisci perferendis soluta! Ut ex reiciendis at soluta provident doloremque voluptate voluptas nostrum atque sapiente? Quos ratione eveniet dolor dicta quia.
   </p>
+  <p class="font border-2 m-2 p-5 rounded-md transition ease-in-out duration-150 hover:bg-gray-200">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eos, recusandae odio perferendis sequi dolores ducimus nihil laboriosam molestiae vel porro unde voluptas, magni fuga illum. Debitis accusantium nulla atque!
+  </p>
 </template>
 
 <script>
