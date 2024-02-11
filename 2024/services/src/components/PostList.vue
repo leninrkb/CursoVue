@@ -22,4 +22,11 @@ onMounted(async () => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+ol{
+    border: 2px solid rgb(10,150, 10, 0.5);
+    margin: 1em;
+    padding: 1em 1em 1em 3em;
+    border-radius: 1em;
+}
+</style>
