@@ -5,12 +5,12 @@ import PostItem from '@/components/PostItem.vue';
 
 const routes = [
     {
-        path: '/postitem/:id',
+        path: '/post/:id',
         name: 'post-item',
         component: PostItem
     },
     {
-        path: '/posts',
+        path: '/post',
         name: 'posts-view',
         component: PostView
     },

@@ -27,7 +27,6 @@ let done = computed(() => {
 
 onMounted(async () => {
     await service.get_post(router.params.id)
-    console.log(item.value);
 })
 
 </script>
