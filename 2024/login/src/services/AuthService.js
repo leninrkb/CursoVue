@@ -10,9 +10,13 @@ class AuthService{
         return this.jwt
     }
 
+    getError(){
+        return this.error
+    }
+
     async login(email, password){
         try {
-            let response = await fetch('',{
+            let response = await fetch('url',{
                 method: 'POST',
                 headers:{
                     'Accep':'application/json',
@@ -28,7 +32,7 @@ class AuthService{
                 this.error = response
                 return false
             }else{
-                this.jwt = response
+                this.jwt = response.data
                 return true
             }
         } catch (error) {
