@@ -1,5 +1,6 @@
 <template>
-    <LoginForm @login="auth($event)"></LoginForm>
+    <LoginForm @login="auth($event)">
+    <h4>Firebase Login</h4></LoginForm>
 </template>
 
 <script setup>
