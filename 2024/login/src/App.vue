@@ -2,7 +2,8 @@
     <nav class="bg-green-100 vshadow">
         <router-link to="/">Home</router-link> |
         <router-link :to="{name: 'auth'}">Login / Register</router-link> |
-        <router-link :to="{name: 'auth-firebase'}">Firebase login</router-link> 
+        <router-link :to="{name: 'auth-firebase'}">Firebase login</router-link> |
+        <router-link :to="{name: 'auth-social'}">Social login</router-link>
     </nav>
     <div class="container vshadow">
         <router-view />

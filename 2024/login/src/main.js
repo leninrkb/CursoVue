@@ -15,3 +15,30 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 createApp(App).use(router).mount('#app')
+
+
+
+
+const dochange = (nums, c) => {
+    let tempnum = nums[c]
+    nums[c] = nums[c + 1]
+    nums[c + 1] = tempnum
+}
+
+const sortnums = (nums) => {
+        let c = 0
+        let add = 1
+        let last_c = 0
+        while (c < nums.length - 1) {
+            if (nums[c] > nums[c + 1]) {
+                dochange(nums, c)
+                add = -1
+                last_c = c < last_c ? last_c : c
+            } else {
+                c = c < last_c ? last_c : c
+                add = 1
+            }
+            c += add
+            c = c < 0 ? 0 : c
+        }
+    }

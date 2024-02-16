@@ -2,8 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AuthView from '@/views/AuthView.vue';
 import FirebaseAuthView from '@/views/FirebaseAuthView.vue';
+import SocialAuthView from '@/views/SocialAuthView.vue';
 
 const routes = [
+    {
+      path:'/auth',
+      name:'auth-social',
+      component: SocialAuthView
+    },
     {
         path: '/auth',
         name: 'auth-firebase',
