@@ -1,23 +1,25 @@
 <template>
     <div class="options">
-        <IconButton @click="">Login with google</IconButton>
-        <IconButton @click="">Login with facebook</IconButton>
-        <IconButton @click="">Login with github</IconButton>
+        <IconButton @click="loginGoogle" :icon="google_icon">Login with google</IconButton>
     </div>
+    <InfoMessage :show="show_message">user signed with google!</InfoMessage>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
 import IconButton from "@/components/IconButton.vue";
+import InfoMessage from "@/components/InfoMessage.vue";
 // 
+let show_message = ref(false)
+let google_icon = require('../assets/google.png')
 const google_provider = new GoogleAuthProvider()
 const auth = getAuth()
 const loginGoogle =  () => {
     signInWithPopup(auth, google_provider).then(() => {
-        alert(`signed in with google succesfuly`)
+        show_message.value = true
     }).catch(error => {
-        alert(error)
+        show_message.value = false
     })
 }
 </script>
