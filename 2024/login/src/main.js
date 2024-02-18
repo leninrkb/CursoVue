@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import './assets/tailwind.css'
 import { initializeApp } from "firebase/app";
+import store from './store'
 
 const firebaseConfig = {
     apiKey: "AIzaSyDlw4EUrEx45Jf6z7LJf8w_tgDITWB0XxM",
@@ -14,7 +15,7 @@ const firebaseConfig = {
 };
 
 initializeApp(firebaseConfig);
-createApp(App).use(router).mount('#app')
+createApp(App).use(store).use(router).mount('#app')
 
 
 
