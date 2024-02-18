@@ -6,12 +6,12 @@ import SocialAuthView from '@/views/SocialAuthView.vue';
 
 const routes = [
     {
-      path:'/auth',
+      path:'/authsocial',
       name:'auth-social',
       component: SocialAuthView
     },
     {
-        path: '/auth',
+        path: '/authfirebase',
         name: 'auth-firebase',
         component: FirebaseAuthView
     },
