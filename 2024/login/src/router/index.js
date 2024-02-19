@@ -4,7 +4,14 @@ import AuthView from '@/views/AuthView.vue';
 import FirebaseAuthView from '@/views/FirebaseAuthView.vue';
 import SocialAuthView from '@/views/SocialAuthView.vue';
 
+import StoreView from '@/views/StoreView.vue';
+
 const routes = [
+    {
+      path:'/storeview',
+      name:'store-view',
+      component: StoreView
+    },
     {
       path:'/authsocial',
       name:'auth-social',
