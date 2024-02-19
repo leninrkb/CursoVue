@@ -1,18 +1,12 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    pinia
+    <h3>counter: {{ store.count }}</h3>
+    <h3>counter x 2: {{ store.times2 }}</h3>
+    <button @click="store.increment(1)">increment</button>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script setup>
+import { useCounterStore } from '@/store/index'
+const store = useCounterStore()
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
 </script>
